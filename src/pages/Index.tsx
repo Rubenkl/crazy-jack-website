@@ -1,13 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { LanguageProvider } from "@/hooks/useLanguage";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { Hero } from "@/components/Hero";
+import { Music } from "@/components/Music";
+import { Highlights } from "@/components/Highlights";
+import { PhotoGallery } from "@/components/PhotoGallery";
+import { About } from "@/components/About";
+import { BookingForm } from "@/components/BookingForm";
+import { Socials } from "@/components/Socials";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <LanguageProvider>
+      <div className="min-h-screen bg-background text-foreground">
+        {/* Language Toggle - Fixed Position */}
+        <div className="fixed top-4 right-4 z-50">
+          <LanguageToggle />
+        </div>
+
+        {/* Hero Section */}
+        <Hero />
+
+        {/* Music Section */}
+        <Music />
+
+        {/* Highlights Section */}
+        <Highlights />
+
+        {/* Photo Gallery Section */}
+        <PhotoGallery />
+
+        {/* About Section */}
+        <About />
+
+        {/* Booking Form Section */}
+        <BookingForm />
+
+        {/* Socials Section */}
+        <Socials />
+
+        {/* Footer */}
+        <Footer />
       </div>
-    </div>
+    </LanguageProvider>
   );
 };
 

@@ -43,8 +43,25 @@ export function Hero() {
             <div className="relative inline-block">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                animate={{ 
+                  opacity: 1, 
+                  y: 0,
+                  textShadow: [
+                    "0 0 0px hsl(var(--primary) / 0)",
+                    "0 0 30px hsl(var(--primary) / 0.6)",
+                    "0 0 0px hsl(var(--primary) / 0)",
+                  ]
+                }}
+                transition={{ 
+                  opacity: { duration: 0.6 },
+                  y: { duration: 0.6 },
+                  textShadow: { 
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatDelay: 3,
+                    ease: "easeInOut"
+                  }
+                }}
                 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight relative"
               >
                 CRAZY JACK
@@ -55,8 +72,8 @@ export function Hero() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                style={{ rotate: "-18deg" }}
                 className="absolute -bottom-4 -right-8 md:-bottom-6 md:-right-12 lg:-right-16 text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap animate-pulse-scale"
+                style={{ transform: "rotate(-18deg)" }}
               >
                 {t.hero.tag}
               </motion.span>

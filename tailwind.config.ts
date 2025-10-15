@@ -82,6 +82,14 @@ export default {
             transform: "scale(1.05)"
           },
         },
+        "pulse-scale": {
+          "0%, 100%": { 
+            transform: "scale(1)"
+          },
+          "50%": { 
+            transform: "scale(1.05)"
+          },
+        },
         "marquee": {
           "0%": { transform: "translateX(0%)" },
           "100%": { transform: "translateX(-50%)" },
@@ -99,6 +107,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "pulse-scale": "pulse-scale 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "marquee": "marquee 25s linear infinite",
         "fade-in-up": "fade-in-up 0.6s ease-out",
         "scale-in": "scale-in 0.4s ease-out",

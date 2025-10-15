@@ -32,7 +32,7 @@ export function Music() {
             <div className="aspect-square bg-muted rounded-xl flex items-center justify-center">
               <iframe
                 style={{ borderRadius: "12px" }}
-                src="https://open.spotify.com/embed/artist/3TVXtAsR1Inumwj472S9r4?utm_source=generator"
+                src="https://open.spotify.com/embed/artist/5DrOI7Hq3HNpD909jIPHVL?utm_source=generator"
                 width="100%"
                 height="352"
                 frameBorder="0"

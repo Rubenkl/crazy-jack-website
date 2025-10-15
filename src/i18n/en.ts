@@ -32,7 +32,7 @@ export const en = {
   },
   form: {
     title: "Book Crazy Jack",
-    subtitle: "Tell me about your event and I'll get back fast.",
+    subtitle: "Let's make your event legendary. Drop the details and I'll hit you back ASAP.",
     label: {
       name: "Name",
       email: "Email",

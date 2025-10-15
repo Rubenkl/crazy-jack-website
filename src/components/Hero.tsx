@@ -55,7 +55,7 @@ export function Hero() {
                 initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
                 animate={{ opacity: 1, scale: 1, rotate: -12 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="absolute -top-4 -right-8 md:-right-12 lg:-right-16 px-6 py-2 md:px-8 md:py-3 rounded-full border-2 border-primary bg-primary/20 backdrop-blur-sm animate-pulse-glow"
+                className="absolute -top-4 -right-8 md:-right-12 lg:-right-16 px-6 py-2 md:px-8 md:py-3 animate-pulse-glow"
               >
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap">
                   {t.hero.tag}
@@ -82,7 +82,7 @@ export function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("booking")}
-                className="px-10 py-5 bg-primary text-primary-foreground rounded-full text-lg font-bold shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.8)] transition-all"
+                className="px-8 py-3 bg-primary text-primary-foreground rounded-full text-base font-bold shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.8)] transition-all"
               >
                 {t.cta.book}
               </motion.button>
@@ -90,23 +90,10 @@ export function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("music")}
-                className="px-10 py-5 bg-transparent border-2 border-secondary text-secondary rounded-full text-lg font-bold hover:bg-secondary/10 transition-all"
+                className="px-8 py-3 bg-primary text-primary-foreground rounded-full text-base font-bold shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.8)] transition-all"
               >
                 {t.cta.listen}
               </motion.button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="mt-12 text-sm text-muted-foreground flex flex-wrap justify-center lg:justify-start gap-4"
-            >
-              {["Amsterdam", "Urban", "Latin", "House", "Hard Dance"].map((item, i) => (
-                <span key={i} className="px-4 py-2 bg-card/50 backdrop-blur-sm rounded-full border border-border">
-                  {item}
-                </span>
-              ))}
             </motion.div>
           </div>
 

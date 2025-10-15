@@ -34,7 +34,7 @@ export const nl: Translations = {
   },
   form: {
     title: "Crazy Jack boeken",
-    subtitle: "Vertel iets over je event, ik reageer snel.",
+    subtitle: "Laten we jouw event legendary maken. Drop de details en ik reageer zo snel mogelijk.",
     label: {
       name: "Naam",
       email: "E-mail",

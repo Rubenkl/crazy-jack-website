@@ -71,13 +71,14 @@ export function Hero() {
               
               {/* Fxck Genres Badge - Diagonal Bottom Right */}
               <span
-                className="absolute -bottom-4 -right-8 md:-bottom-6 md:-right-12 lg:-right-16 text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap animate-pulse-scale"
+                className="absolute -bottom-4 -right-8 md:-bottom-6 md:-right-12 lg:-right-16"
                 style={{ 
                   transform: "rotate(-18deg)",
-                  display: "inline-block"
                 }}
               >
-                {t.hero.tag}
+                <span className="text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap animate-pulse-scale inline-block">
+                  {t.hero.tag}
+                </span>
               </span>
             </div>
 

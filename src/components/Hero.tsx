@@ -113,13 +113,13 @@ export function Hero() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("music")}
-                className="px-8 py-3 border-2 border-secondary text-secondary font-bold text-base uppercase tracking-wider relative overflow-hidden group"
+                className="px-8 py-3 bg-primary text-primary-foreground font-bold text-base uppercase tracking-wider relative overflow-hidden group"
                 style={{ 
                   clipPath: "polygon(0% 0%, 92% 0%, 100% 100%, 8% 100%)",
                 }}
               >
                 <span className="relative z-10">{t.cta.listen}</span>
-                <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-20 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.button>
             </motion.div>
           </div>

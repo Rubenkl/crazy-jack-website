@@ -95,23 +95,31 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+              className="flex flex-row gap-4 justify-center lg:justify-start items-center"
             >
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("booking")}
-                className="px-8 py-3 bg-primary text-primary-foreground rounded-full text-base font-bold shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.8)] transition-all"
+                className="px-8 py-3 bg-primary text-primary-foreground font-bold text-base uppercase tracking-wider relative overflow-hidden group"
+                style={{ 
+                  clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
+                }}
               >
-                {t.cta.book}
+                <span className="relative z-10">{t.cta.book}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.button>
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("music")}
-                className="px-8 py-3 bg-primary text-primary-foreground rounded-full text-base font-bold shadow-[0_0_30px_hsl(var(--primary)/0.5)] hover:shadow-[0_0_50px_hsl(var(--primary)/0.8)] transition-all"
+                className="px-8 py-3 border-2 border-secondary text-secondary font-bold text-base uppercase tracking-wider relative overflow-hidden group"
+                style={{ 
+                  clipPath: "polygon(0% 0%, 92% 0%, 100% 100%, 8% 100%)",
+                }}
               >
-                {t.cta.listen}
+                <span className="relative z-10">{t.cta.listen}</span>
+                <div className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-20 transition-opacity" />
               </motion.button>
             </motion.div>
           </div>

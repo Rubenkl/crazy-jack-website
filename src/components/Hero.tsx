@@ -50,13 +50,13 @@ export function Hero() {
                 CRAZY JACK
               </motion.h1>
               
-              {/* Fxck Genres Badge - Diagonal */}
+              {/* Fxck Genres Badge - Diagonal Bottom Right */}
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                style={{ rotate: "18deg" }}
-                className="absolute -top-6 -right-8 md:-right-12 lg:-right-16 text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap animate-pulse-scale"
+                style={{ rotate: "-18deg" }}
+                className="absolute -bottom-4 -right-8 md:-bottom-6 md:-right-12 lg:-right-16 text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap animate-pulse-scale"
               >
                 {t.hero.tag}
               </motion.span>

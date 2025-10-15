@@ -19,7 +19,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-screen flex items-start pt-32 md:pt-40 overflow-hidden">
       {/* Parallax Background */}
       <motion.div
         style={{ y }}
@@ -115,7 +115,7 @@ export function Hero() {
                 onClick={() => scrollToSection("music")}
                 className="px-8 py-3 bg-primary text-primary-foreground font-bold text-base uppercase tracking-wider relative overflow-hidden group"
                 style={{ 
-                  clipPath: "polygon(0% 0%, 92% 0%, 100% 100%, 8% 100%)",
+                  clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
                 }}
               >
                 <span className="relative z-10">{t.cta.listen}</span>

@@ -51,16 +51,14 @@ export function Hero() {
               </motion.h1>
               
               {/* Fxck Genres Badge - Diagonal */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
-                animate={{ opacity: 1, scale: 1, rotate: -12 }}
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8, rotate: -18 }}
+                animate={{ opacity: 1, scale: 1, rotate: -18 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="absolute -top-4 -right-8 md:-right-12 lg:-right-16 px-6 py-2 md:px-8 md:py-3 animate-pulse-glow"
+                className="absolute -top-6 -right-8 md:-right-12 lg:-right-16 text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap"
               >
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap">
-                  {t.hero.tag}
-                </h2>
-              </motion.div>
+                {t.hero.tag}
+              </motion.span>
             </div>
 
             <motion.p

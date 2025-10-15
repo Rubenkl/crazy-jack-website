@@ -46,37 +46,39 @@ export function Hero() {
                 animate={{ 
                   opacity: 1, 
                   y: 0,
-                  textShadow: [
-                    "0 0 0px hsl(var(--primary) / 0)",
-                    "0 0 30px hsl(var(--primary) / 0.6)",
-                    "0 0 0px hsl(var(--primary) / 0)",
-                  ]
                 }}
                 transition={{ 
                   opacity: { duration: 0.6 },
                   y: { duration: 0.6 },
-                  textShadow: { 
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                    ease: "easeInOut"
-                  }
                 }}
+                onAnimationComplete={() => {
+                  // Trigger shake every 5 seconds
+                  setInterval(() => {
+                    const element = document.getElementById("crazy-jack-title");
+                    if (element) {
+                      element.classList.add("animate-shake");
+                      setTimeout(() => {
+                        element.classList.remove("animate-shake");
+                      }, 500);
+                    }
+                  }, 5000);
+                }}
+                id="crazy-jack-title"
                 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight relative"
               >
                 CRAZY JACK
               </motion.h1>
               
               {/* Fxck Genres Badge - Diagonal Bottom Right */}
-              <motion.span
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
+              <span
                 className="absolute -bottom-4 -right-8 md:-bottom-6 md:-right-12 lg:-right-16 text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap animate-pulse-scale"
-                style={{ transform: "rotate(-18deg)" }}
+                style={{ 
+                  transform: "rotate(-18deg)",
+                  display: "inline-block"
+                }}
               >
                 {t.hero.tag}
-              </motion.span>
+              </span>
             </div>
 
             <motion.p

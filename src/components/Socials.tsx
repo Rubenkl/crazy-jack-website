@@ -1,24 +1,30 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Instagram, Music2 } from "lucide-react";
+import { InstagramIcon, SpotifyIcon, SoundCloudIcon, TikTokIcon } from "./BrandIcons";
 
 const socials = [
   {
     name: "Instagram",
     url: "https://www.instagram.com/crazyjacknl/",
-    icon: Instagram,
+    icon: InstagramIcon,
     color: "hover:text-[#E4405F]",
+  },
+  {
+    name: "TikTok",
+    url: "https://www.tiktok.com/@crazyjacknl",
+    icon: TikTokIcon,
+    color: "hover:text-[#000000] dark:hover:text-[#FFFFFF]",
   },
   {
     name: "SoundCloud",
     url: "https://soundcloud.com/crazyjacknl",
-    icon: Music2,
+    icon: SoundCloudIcon,
     color: "hover:text-[#FF5500]",
   },
   {
     name: "Spotify",
-    url: "https://open.spotify.com/artist/5K4W6rqBFWDnAN6FQUkS6x",
-    icon: Music2,
+    url: "https://open.spotify.com/artist/5DrOI7Hq3HNpD909jIPHVL",
+    icon: SpotifyIcon,
     color: "hover:text-[#1DB954]",
   },
 ];
@@ -38,23 +44,26 @@ export function Socials() {
         >
           <h3 className="text-2xl font-bold mb-8">Follow the Energy</h3>
           <div className="flex gap-6">
-            {socials.map((social, i) => (
-              <motion.a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-                className={`w-16 h-16 rounded-full bg-card border border-border flex items-center justify-center transition-all ${social.color} hover:border-current`}
-                aria-label={social.name}
-              >
-                <social.icon className="w-8 h-8" />
-              </motion.a>
-            ))}
+            {socials.map((social, i) => {
+              const Icon = social.icon;
+              return (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className={`w-16 h-16 rounded-full bg-card border border-border flex items-center justify-center transition-all ${social.color} hover:border-current`}
+                  aria-label={social.name}
+                >
+                  <Icon className="w-8 h-8" />
+                </motion.a>
+              );
+            })}
           </div>
         </motion.div>
       </div>

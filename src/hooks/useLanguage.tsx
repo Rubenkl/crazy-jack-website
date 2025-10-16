@@ -2,9 +2,9 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 import { en, Translations } from "@/i18n/en";
 import { nl } from "@/i18n/nl";
 
-const SUPPORTED_LANGUAGES = ["en", "nl"] as const;
+export const SUPPORTED_LANGUAGES = ["en", "nl"] as const;
 
-type Language = (typeof SUPPORTED_LANGUAGES)[number];
+export type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
 interface LanguageContextType {
   language: Language;
@@ -16,7 +16,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const translations: Record<Language, Translations> = { en, nl };
 
-const isSupportedLanguage = (value: string | null): value is Language =>
+export const isSupportedLanguage = (value: string | null): value is Language =>
   !!value && SUPPORTED_LANGUAGES.includes(value as Language);
 
 const getBaseSegments = () =>
@@ -30,7 +30,7 @@ const getLanguageFromPath = (): Language | null => {
   const relativeSegments = pathSegments.slice(baseSegments.length);
   const [firstSegment] = relativeSegments;
 
-  return isSupportedLanguage(firstSegment ?? null) ? (firstSegment as Language) : null;
+  return isSupportedLanguage(firstSegment ?? null) ? firstSegment : null;
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

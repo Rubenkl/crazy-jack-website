@@ -14,7 +14,7 @@ export const en = {
   },
   about: {
     title: "About",
-    body: "Crazy Jack is our party animal who tears the roof off. Book him now for your Meter Monday. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at porta ultrices, velit purus sollicitudin turpis, a pharetra eros enim vel turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis nec lorem vitae lacus efficitur tincidunt. Integer in purus non libero vestibulum congue. Phasellus convallis tortor eu augue finibus, nec viverra sapien laoreet.",
+    body: "Crazy Jack's unique style and high-energy performances have earned him recognition not just in the Netherlands, but far beyond. He has lit up countless festivals and turned dancefloors upside down with his unforgettable sets. More than just a DJ, Crazy Jack is a true entertainer. His charisma and connection with the crowd make every performance a celebration. He knows exactly how to read the room and get everyone dancing. His passion for music is unmistakable, and his energy is contagious.",
   },
   form: {
     title: "Book Crazy Jack",

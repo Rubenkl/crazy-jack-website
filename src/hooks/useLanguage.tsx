@@ -30,7 +30,7 @@ const getLanguageFromPath = (): Language | null => {
   const relativeSegments = pathSegments.slice(baseSegments.length);
   const [firstSegment] = relativeSegments;
 
-  return isSupportedLanguage(firstSegment ?? null) ? firstSegment : null;
+  return isSupportedLanguage(firstSegment ?? null) ? (firstSegment as Language) : null;
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {

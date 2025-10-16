@@ -16,7 +16,7 @@ export const nl: Translations = {
   },
   about: {
     title: "Over",
-    body: "Crazy Jack is onze slettenbak die de tent afbreekt. Boek hem nu op je metermaandag. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at porta ultrices, velit purus sollicitudin turpis, a pharetra eros enim vel turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis nec lorem vitae lacus efficitur tincidunt. Integer in purus non libero vestibulum congue. Phasellus convallis tortor eu augue finibus, nec viverra sapien laoreet.",
+    body: "Zijn unieke stijl en energieke optredens hebben hem niet alleen in Nederland, maar ook in het buitenland bekendheid gebracht. Zo stond Crazy Jack op talloze festivals en heeft menig tent op zijn kop gezet met zijn onvergetelijke sets. Crazy Jack is niet alleen een DJ, maar ook een entertainer pur sang. Zijn charisma en interactie met het publiek zorgen ervoor dat zijn optredens altijd een feest zijn. Hij weet absoluut hoe hij de menigte moet bespelen en iedereen aan het dansen krijgt. Zijn passie voor muziek is voelbaar en zijn enthousiasme werkt aanstekelijk.",
   },
   form: {
     title: "Crazy Jack boeken",

@@ -1,18 +1,11 @@
-# Welcome to your Lovable project
+
 
 ## Project info
-
-**URL**: https://lovable.dev/projects/ac7961bb-cd49-4976-b07f-c8bb5479b479
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/ac7961bb-cd49-4976-b07f-c8bb5479b479) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -91,15 +84,3 @@ local `dist/` structure that `npm run build` produces.
   `VITE_BASE_PATH` environment variable before running `npm run build` (for example, `VITE_BASE_PATH=/my-repo/ npm run
   build`).
 
-### Lovable publish flow
-
-You can also open [Lovable](https://lovable.dev/projects/ac7961bb-cd49-4976-b07f-c8bb5479b479) and click on Share -> Publish
-to deploy via Lovable's hosting.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)

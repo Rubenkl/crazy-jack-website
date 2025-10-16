@@ -19,7 +19,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-start pt-32 md:pt-40 overflow-hidden">
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-32">
       {/* Parallax Background */}
       <motion.div
         style={{ y }}
@@ -37,7 +37,7 @@ export function Hero() {
         style={{ opacity }}
         className="relative z-10 container mx-auto px-4"
       >
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side - Text Content */}
           <div className="text-center lg:text-left">
             <div className="relative inline-block">
@@ -75,12 +75,12 @@ export function Hero() {
               
               {/* Fxck Genres Badge - Diagonal Bottom Right */}
               <span
-                className="absolute -bottom-2 right-0 md:-bottom-3 md:right-4 lg:right-8"
+                className="absolute -bottom-8 right-0 md:-bottom-10 md:right-4 lg:right-8"
                 style={{ 
                   transform: "rotate(-18deg)",
                 }}
               >
-                <span className="text-xl md:text-2xl lg:text-3xl font-bold text-gradient whitespace-nowrap animate-pulse-scale inline-block uppercase">
+                <span className="text-2xl md:text-4xl lg:text-5xl font-bold text-gradient whitespace-nowrap animate-pulse-scale inline-block uppercase">
                   {t.hero.tag}
                 </span>
               </span>
@@ -90,7 +90,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl"
+              className="text-xl md:text-2xl text-muted-foreground mb-8 mt-12 max-w-2xl"
             >
               {t.hero.pitch}
             </motion.p>
@@ -133,9 +133,9 @@ export function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative hidden lg:flex items-center justify-center"
+            className="relative flex items-center justify-center mt-12 lg:mt-0"
           >
-            <div className="relative w-full h-[600px] flex items-center justify-center">
+            <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-full blur-3xl" />
               <img 
                 src="/images/cutout-artist.png" 

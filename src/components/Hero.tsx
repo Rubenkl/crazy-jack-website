@@ -20,7 +20,7 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Parallax Background with Artist Cutout */}
+      {/* Parallax Background */}
       <motion.div
         style={{ y }}
         className="absolute inset-0 z-0"
@@ -29,16 +29,7 @@ export function Hero() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBg})` }}
         />
-        {/* Artist Cutout as Background */}
-        <div 
-          className="absolute inset-0 bg-center bg-no-repeat opacity-40 md:opacity-60"
-          style={{ 
-            backgroundImage: `url(/images/cutout-artist.png)`,
-            backgroundSize: 'contain',
-            backgroundPosition: 'center bottom'
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
       </motion.div>
 
       {/* Centered Content */}
@@ -46,7 +37,7 @@ export function Hero() {
         style={{ opacity }}
         className="relative z-10 container mx-auto px-4 py-20"
       >
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div className="flex flex-col items-center text-center max-w-6xl mx-auto">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -76,17 +67,17 @@ export function Hero() {
             <img 
               src="/images/logo-crazy-jack.png" 
               alt="Crazy Jack Logo" 
-              className="h-24 md:h-40 lg:h-56 w-auto mx-auto"
+              className="h-20 md:h-32 lg:h-40 w-auto mx-auto"
             />
             
             {/* Fxck Genres Badge */}
             <span
-              className="absolute -bottom-6 left-1/2 -translate-x-1/2 md:-bottom-8"
+              className="absolute -bottom-4 left-1/2 md:-bottom-6"
               style={{ 
                 transform: "translateX(-50%) rotate(-12deg)",
               }}
             >
-              <span className="text-2xl md:text-4xl lg:text-5xl font-bold text-gradient whitespace-nowrap animate-pulse-scale inline-block uppercase">
+              <span className="text-xl md:text-3xl lg:text-4xl font-bold text-gradient whitespace-nowrap animate-pulse-scale inline-block uppercase">
                 {t.hero.tag}
               </span>
             </span>
@@ -97,10 +88,24 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-xl md:text-2xl lg:text-3xl text-foreground mb-12 mt-16 max-w-3xl font-medium"
+            className="text-lg md:text-xl lg:text-2xl text-foreground mb-8 mt-12 max-w-3xl font-medium"
           >
             {t.hero.pitch}
           </motion.p>
+
+          {/* Artist Cutout - Fully Visible */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative w-full max-w-md lg:max-w-lg mb-8"
+          >
+            <img 
+              src="/images/cutout-artist.png" 
+              alt="Crazy Jack DJ" 
+              className="w-full h-auto object-contain"
+            />
+          </motion.div>
 
           {/* Action Buttons */}
           <motion.div

@@ -83,22 +83,12 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Pitch Text */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-lg md:text-xl lg:text-2xl text-foreground mb-8 mt-16 lg:mt-20 max-w-3xl font-medium"
-          >
-            {t.hero.pitch}
-          </motion.p>
-
           {/* Artist Cutout with Overlaid Buttons */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full max-w-2xl lg:max-w-4xl mx-auto pb-4 md:pb-8"
+            className="relative w-full max-w-2xl lg:max-w-4xl mx-auto -mt-8 md:-mt-12 lg:-mt-16"
           >
             <img 
               src="/images/cutout-artist.png" 
@@ -107,7 +97,7 @@ export function Hero() {
             />
             
             {/* Action Buttons Overlaid on Bottom of Cutout */}
-            <div className="absolute bottom-12 md:bottom-16 lg:bottom-20 left-0 right-0 flex items-center justify-center px-4">
+            <div className="absolute bottom-16 md:bottom-20 lg:bottom-24 left-0 right-0 flex items-center justify-center px-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -8,7 +8,6 @@ const galleryImages = [
   "/images/image-1.jpg",
   "/images/image-2.jpg",
   "/images/image-3.jpg",
-  "/images/image-4.jpg",
 ];
 
 export function PhotoGallery() {
@@ -36,7 +35,9 @@ export function PhotoGallery() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
+              className={`relative aspect-square overflow-hidden rounded-lg cursor-pointer group ${
+                i === 2 ? "md:col-span-2 md:max-w-md md:mx-auto" : ""
+              }`}
               onClick={() => setSelectedImage(image)}
             >
               <img

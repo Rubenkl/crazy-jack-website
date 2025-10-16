@@ -61,37 +61,65 @@ export function BookingForm() {
 
     setIsSubmitting(true);
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      toast({
-        title: t.form.state.success,
+    try {
+      const formDataToSubmit = new FormData();
+      formDataToSubmit.append('access_key', '6ad29dbd-172a-4353-8d02-f1396d69dfe7');
+      formDataToSubmit.append('subject', `New booking request from ${formState.name}`);
+      formDataToSubmit.append('from_name', 'Crazy Jack Website');
+      formDataToSubmit.append('email', formState.email);
+      formDataToSubmit.append('name', formState.name);
+      formDataToSubmit.append('phone', formState.phone);
+      formDataToSubmit.append('event_date', formState.event_date);
+      formDataToSubmit.append('message', formState.message);
+      formDataToSubmit.append('botcheck', '');
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formDataToSubmit
       });
-      
-      // Trigger confetti on successful submission
-      confetti({
-        particleCount: 200,
-        spread: 120,
-        origin: { x: 0, y: 1 }, // Bottom left corner
-        angle: 45,
-        startVelocity: 55,
-        gravity: 0.8,
-        colors: ['#ff2d7a', '#9b87f5', '#ffffff', '#1a1f2e'],
-      });
-      
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormState({
-          name: "",
-          email: "",
-          phone: "",
-          event_date: "",
-          message: "",
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitting(false);
+        setIsSuccess(true);
+        toast({
+          title: t.form.state.success,
         });
-        setIsSuccess(false);
-      }, 3000);
-    }, 2000);
+        
+        // Trigger confetti on successful submission
+        confetti({
+          particleCount: 200,
+          spread: 120,
+          origin: { x: 0, y: 1 }, // Bottom left corner
+          angle: 45,
+          startVelocity: 55,
+          gravity: 0.8,
+          colors: ['#ff2d7a', '#9b87f5', '#ffffff', '#1a1f2e'],
+        });
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setFormState({
+            name: "",
+            email: "",
+            phone: "",
+            event_date: "",
+            message: "",
+          });
+          setIsSuccess(false);
+        }, 3000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setIsSubmitting(false);
+      toast({
+        title: t.form.state.error,
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

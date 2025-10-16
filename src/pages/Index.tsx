@@ -4,6 +4,7 @@ import { Music } from "@/components/Music";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import { About } from "@/components/About";
 import { BookingForm } from "@/components/BookingForm";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { Socials } from "@/components/Socials";
 import { Footer } from "@/components/Footer";
 
@@ -25,6 +26,9 @@ const Index = () => {
 
         {/* Booking Form Section */}
         <BookingForm />
+
+        {/* WhatsApp Button */}
+        <WhatsAppButton />
 
         {/* Socials Section */}
         <Socials />

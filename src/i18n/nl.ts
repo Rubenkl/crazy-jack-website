@@ -4,6 +4,7 @@ export const nl: Translations = {
   cta: {
     book: "Boeken",
     listen: "Luisteren",
+    whatsapp: "Contact via WhatsApp",
   },
   music: {
     title: "Muziek",

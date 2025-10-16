@@ -17,7 +17,7 @@ export const en = {
   },
   form: {
     title: "Book Crazy Jack",
-    subtitle: "Let's make your event legendary. Drop the details and I'll hit you back ASAP.",
+    subtitle: "Let's make your event legendary. Drop the details and we will hit you back ASAP.",
     label: {
       name: "Name",
       email: "Email",
@@ -37,7 +37,7 @@ export const en = {
       sending: "Sending…",
     },
     state: {
-      success: "Thanks! I'll reply to your booking request shortly.",
+      success: "Thanks! We will reply to your booking request shortly.",
       error: "Something went wrong. Please try again.",
     },
     error: {

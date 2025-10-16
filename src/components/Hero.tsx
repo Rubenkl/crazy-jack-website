@@ -12,7 +12,6 @@ export function Hero() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -44,7 +43,7 @@ export function Hero() {
       </motion.div>
 
       {/* Centered Content */}
-      <motion.div style={{ opacity }} className="relative z-10 w-full px-4 py-20">
+      <div className="relative z-10 w-full px-4 py-20">
         <div className="flex flex-col items-center text-center w-full max-w-7xl mx-auto">
           {/* Logo */}
           <motion.div
@@ -124,7 +123,7 @@ export function Hero() {
             </div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

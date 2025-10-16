@@ -26,7 +26,7 @@ export function Hero() {
         spread: 300,
         origin: { x: 0, y: 1 }, // Bottom left corner
         angle: 45,
-        startVelocity: 45,
+        startVelocity: 80,
         gravity: 0.8,
         colors: ["#ff2d7a", "#9b87f5", "#ffffff", "#1a1f2e"],
       });

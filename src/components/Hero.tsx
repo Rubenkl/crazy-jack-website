@@ -78,7 +78,7 @@ export function Hero() {
             className="relative w-full max-w-2xl lg:max-w-4xl mx-auto -mt-8 md:-mt-12 lg:-mt-16"
           >
             <img 
-              src="/images/artist-cutout.png" 
+              src="/images/cutout-artist.png" 
               alt="Crazy Jack DJ" 
               className="w-full h-auto object-contain"
             />

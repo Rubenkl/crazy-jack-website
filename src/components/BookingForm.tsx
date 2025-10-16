@@ -3,6 +3,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, CheckCircle2 } from "lucide-react";
+import confetti from "canvas-confetti";
 
 export function BookingForm() {
   const { t } = useLanguage();
@@ -66,6 +67,17 @@ export function BookingForm() {
       setIsSuccess(true);
       toast({
         title: t.form.state.success,
+      });
+      
+      // Trigger confetti on successful submission
+      confetti({
+        particleCount: 200,
+        spread: 120,
+        origin: { x: 0, y: 1 }, // Bottom left corner
+        angle: 45,
+        startVelocity: 55,
+        gravity: 0.8,
+        colors: ['#ff2d7a', '#9b87f5', '#ffffff', '#1a1f2e'],
       });
       
       // Reset form after 3 seconds

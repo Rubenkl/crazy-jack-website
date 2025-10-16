@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
+import confetti from "canvas-confetti";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -16,6 +17,23 @@ export function Hero() {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  // Confetti on page load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { x: 0, y: 1 }, // Bottom left corner
+        angle: 45,
+        startVelocity: 45,
+        gravity: 0.8,
+        colors: ['#ff2d7a', '#9b87f5', '#ffffff', '#1a1f2e'],
+      });
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24">

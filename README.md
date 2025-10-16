@@ -62,7 +62,39 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/ac7961bb-cd49-4976-b07f-c8bb5479b479) and click on Share -> Publish.
+### GitHub Pages (CI/CD)
+
+Every push to `main` runs the **Deploy static site** workflow located in `.github/workflows/deploy.yml`. The workflow:
+
+1. Installs dependencies with `npm ci` and runs `npm run build`.
+2. Executes the `postbuild` script (`scripts/generate-language-pages.mjs`) to duplicate `dist/index.html` into
+   language-specific folders (`dist/en/index.html`, `dist/nl/index.html`) and create a `dist/404.html` fallback for
+   client-side routing.
+3. Uploads the entire `dist/` directory as the GitHub Pages artifact and publishes it via `actions/deploy-pages`.
+
+#### One-time GitHub Pages setup
+
+1. Open **Settings → Pages** in your repository.
+2. Under **Build and deployment**, set the source to **GitHub Actions** (this enables the workflow above to serve your
+   Pages site).
+3. If prompted, allow GitHub Actions to deploy to GitHub Pages.
+
+Once configured, deployments will appear under **Actions → Deploy static site** and the published site URL is listed in
+the workflow summary (`https://<username>.github.io/<repo>/` for project sites, or `https://<username>.github.io/` for
+user/organization sites). You can confirm which files were published by downloading the artifact— it will mirror the
+local `dist/` structure that `npm run build` produces.
+
+#### Customizing locales or paths
+
+- Add or remove locale codes in `scripts/generate-language-pages.mjs` to control which language folders are exported.
+- The Vite base path is automatically set for GitHub Pages during CI, but you can override it locally by defining the
+  `VITE_BASE_PATH` environment variable before running `npm run build` (for example, `VITE_BASE_PATH=/my-repo/ npm run
+  build`).
+
+### Lovable publish flow
+
+You can also open [Lovable](https://lovable.dev/projects/ac7961bb-cd49-4976-b07f-c8bb5479b479) and click on Share -> Publish
+to deploy via Lovable's hosting.
 
 ## Can I connect a custom domain to my Lovable project?
 

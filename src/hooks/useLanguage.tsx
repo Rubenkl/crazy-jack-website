@@ -2,7 +2,9 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 import { en, Translations } from "@/i18n/en";
 import { nl } from "@/i18n/nl";
 
-type Language = "en" | "nl";
+const SUPPORTED_LANGUAGES = ["en", "nl"] as const;
+
+type Language = (typeof SUPPORTED_LANGUAGES)[number];
 
 interface LanguageContextType {
   language: Language;
@@ -14,18 +16,35 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const translations: Record<Language, Translations> = { en, nl };
 
+const isSupportedLanguage = (value: string | null): value is Language =>
+  !!value && SUPPORTED_LANGUAGES.includes(value as Language);
+
+const getBaseSegments = () =>
+  (import.meta.env.BASE_URL ?? "/")
+    .split("/")
+    .filter(Boolean);
+
+const getLanguageFromPath = (): Language | null => {
+  const baseSegments = getBaseSegments();
+  const pathSegments = window.location.pathname.split("/").filter(Boolean);
+  const relativeSegments = pathSegments.slice(baseSegments.length);
+  const [firstSegment] = relativeSegments;
+
+  return isSupportedLanguage(firstSegment ?? null) ? firstSegment : null;
+};
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
-    // Check URL parameter
     const params = new URLSearchParams(window.location.search);
     const urlLang = params.get("lang");
-    if (urlLang === "en" || urlLang === "nl") return urlLang;
+    if (isSupportedLanguage(urlLang)) return urlLang;
 
-    // Check localStorage
+    const pathLang = getLanguageFromPath();
+    if (pathLang) return pathLang;
+
     const stored = localStorage.getItem("language");
-    if (stored === "en" || stored === "nl") return stored;
+    if (isSupportedLanguage(stored)) return stored;
 
-    // Auto-detect from browser
     const browserLang = navigator.language.toLowerCase();
     return browserLang.startsWith("nl") ? "nl" : "en";
   });
@@ -34,9 +53,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLanguageState(lang);
     localStorage.setItem("language", lang);
     document.documentElement.lang = lang;
-    
+
     // Update URL without reload
     const url = new URL(window.location.href);
+    const baseSegments = getBaseSegments();
+    const pathSegments = url.pathname.split("/").filter(Boolean);
+    const relativeSegments = pathSegments.slice(baseSegments.length);
+
+    if (relativeSegments[0] && isSupportedLanguage(relativeSegments[0])) {
+      relativeSegments[0] = lang;
+    } else {
+      relativeSegments.unshift(lang);
+    }
+
+    const updatedPath = `/${[...baseSegments, ...relativeSegments].join("/")}/`.replace(/\/{2,}/g, "/");
+    url.pathname = updatedPath;
     url.searchParams.set("lang", lang);
     window.history.replaceState({}, "", url.toString());
   };

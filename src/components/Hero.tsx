@@ -19,7 +19,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24">
+    <section ref={ref} className="relative min-h-[100vh] flex items-center justify-center overflow-hidden py-12 md:py-20">
       {/* Parallax Background */}
       <motion.div
         style={{ y }}
@@ -35,7 +35,7 @@ export function Hero() {
       {/* Centered Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 w-full px-4 py-20"
+        className="relative z-10 w-full px-4"
       >
         <div className="flex flex-col items-center text-center w-full max-w-7xl mx-auto">
           {/* Logo */}
@@ -98,7 +98,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full max-w-2xl lg:max-w-4xl mx-auto pb-4 md:pb-8"
+            className="relative w-full max-w-2xl lg:max-w-4xl mx-auto mb-16"
           >
             <img 
               src="/images/cutout-artist.png" 

@@ -42,7 +42,7 @@ export function About() {
               </p>
               
               <motion.a
-                href="https://www.dropbox.com/scl/fo/0fdjh3n4pr4x1cslrpxgo/h?rlkey=5caibm3yop51usv636n1ecp6e&dl=1"
+                href="https://www.dropbox.com/scl/fo/kopcji3o3oggwirxe0soz/AGqs3eR9pBrG11pJfM8d4Hg?rlkey=8ls45lltof7ya4vn0kl8ntg0b&e=1&st=xvbyjxbc&dl=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}

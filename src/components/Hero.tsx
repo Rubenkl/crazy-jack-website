@@ -19,7 +19,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden pb-24">
       {/* Parallax Background */}
       <motion.div
         style={{ y }}
@@ -107,7 +107,7 @@ export function Hero() {
             />
             
             {/* Action Buttons Overlaid on Bottom of Cutout */}
-            <div className="absolute bottom-2 md:bottom-4 lg:bottom-8 left-0 right-0 flex items-center justify-center px-4">
+            <div className="absolute bottom-8 md:bottom-12 lg:bottom-16 left-0 right-0 flex items-center justify-center px-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

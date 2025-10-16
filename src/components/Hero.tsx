@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useRef } from "react";
-import heroBg from "@/assets/hero-bg.jpg";
 
 export function Hero() {
   const { t } = useLanguage();
@@ -27,7 +26,7 @@ export function Hero() {
       >
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroBg})` }}
+          style={{ backgroundImage: `url(/images/image-5.jpg)` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
       </motion.div>
@@ -62,25 +61,13 @@ export function Hero() {
               }, 5000);
             }}
             id="crazy-jack-title"
-            className="mb-4 relative w-full"
+            className="mb-12 md:mb-16 lg:mb-20 relative w-full"
           >
             <img 
               src="/images/logo-crazy-jack.png" 
               alt="Crazy Jack Logo" 
               className="h-32 md:h-48 lg:h-64 xl:h-72 w-auto mx-auto"
             />
-            
-            {/* Fxck Genres Badge */}
-            <div
-              className="absolute -bottom-6 md:-bottom-10 lg:-bottom-12 left-1/2 -translate-x-1/2 w-full max-w-[90vw]"
-              style={{ 
-                transform: "translateX(-50%) rotate(-12deg)",
-              }}
-            >
-              <span className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gradient animate-pulse-scale inline-block uppercase">
-                {t.hero.tag}
-              </span>
-            </div>
           </motion.div>
 
           {/* Artist Cutout with Overlaid Buttons */}
@@ -91,7 +78,7 @@ export function Hero() {
             className="relative w-full max-w-2xl lg:max-w-4xl mx-auto -mt-8 md:-mt-12 lg:-mt-16"
           >
             <img 
-              src="/images/cutout-artist.png" 
+              src="/images/artist-cutout.png" 
               alt="Crazy Jack DJ" 
               className="w-full h-auto object-contain"
             />

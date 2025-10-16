@@ -1,47 +1,21 @@
 import { motion, useInView } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
-import { useRef, useEffect } from "react";
+import { useRef, useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { X } from "lucide-react";
 
-// Declare Instagram embed type
-declare global {
-  interface Window {
-    instgrm?: {
-      Embeds: {
-        process: () => void;
-      };
-    };
-  }
-}
-
-const instagramPosts = [
-  "https://www.instagram.com/p/DPEl-I4DBnZ/",
-  "https://www.instagram.com/p/DOv3rQuDLEa/",
-  "https://www.instagram.com/p/DOoJGjfDDyN/",
+const galleryImages = [
+  "/images/image-1.jpg",
+  "/images/image-2.jpg",
+  "/images/image-3.jpg",
+  "/images/image-4.jpg",
 ];
 
 export function PhotoGallery() {
   const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  useEffect(() => {
-    // Load Instagram embed script
-    const script = document.createElement('script');
-    script.src = "//www.instagram.com/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Process embeds when script loads
-    script.onload = () => {
-      if (window.instgrm) {
-        window.instgrm.Embeds.process();
-      }
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
     <section ref={ref} className="py-24 bg-card/30">
@@ -55,35 +29,45 @@ export function PhotoGallery() {
           {t.photos.title}
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {instagramPosts.map((postUrl, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {galleryImages.map((image, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex justify-center"
+              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
+              onClick={() => setSelectedImage(image)}
             >
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={postUrl}
-                data-instgrm-version="14"
-                style={{
-                  background: '#FFF',
-                  border: 0,
-                  borderRadius: '3px',
-                  boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
-                  margin: '1px',
-                  maxWidth: '540px',
-                  minWidth: '326px',
-                  padding: 0,
-                  width: 'calc(100% - 2px)',
-                }}
+              <img
+                src={image}
+                alt={`Gallery ${i + 1}`}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Lightbox Dialog */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-7xl w-full p-0 bg-black/95 border-none">
+          <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+          >
+            <X className="w-6 h-6 text-white" />
+          </button>
+          {selectedImage && (
+            <img
+              src={selectedImage}
+              alt="Gallery lightbox"
+              className="w-full h-auto max-h-[90vh] object-contain"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

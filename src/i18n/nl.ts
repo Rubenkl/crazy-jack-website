@@ -1,10 +1,6 @@
 import { Translations } from "./en";
 
 export const nl: Translations = {
-  hero: {
-    tag: "Fxck Genres!",
-    pitch: "All-round party DJ. Urban → Latin → House → keiharde bangers.",
-  },
   cta: {
     book: "Boeken",
     listen: "Luisteren",
@@ -13,17 +9,6 @@ export const nl: Translations = {
     title: "Muziek",
     spotify: "Luister op Spotify",
     soundcloud: "Luister op SoundCloud",
-  },
-  highlights: {
-    title: "Highlights",
-    items: [
-      "Open-format sets die het publiek lezen",
-      "Energieke mashups en edits",
-      "Urban, Latin, House, Hard Dance ready",
-      "Club- en festivalervaring",
-      "Naadloze genre-overgangen",
-      "Peak-hour crowd control",
-    ],
   },
   photos: {
     title: "Foto's",

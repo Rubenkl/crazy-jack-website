@@ -84,18 +84,18 @@ export function Hero() {
             />
             
             {/* Action Buttons Overlaid on Bottom of Cutout */}
-            <div className="absolute bottom-16 md:bottom-20 lg:bottom-24 left-0 right-0 flex items-center justify-center px-4">
+            <div className="absolute bottom-4 md:bottom-20 lg:bottom-24 left-0 right-0 flex items-center justify-center px-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 items-center justify-center"
+                className="flex flex-row gap-3 sm:gap-4 items-center justify-center"
               >
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection("booking")}
-                  className="px-8 md:px-10 py-3 md:py-4 bg-primary text-primary-foreground font-bold text-base md:text-lg uppercase tracking-wider relative overflow-hidden group w-44 md:w-52"
+                  className="px-6 md:px-10 py-2.5 md:py-4 bg-primary text-primary-foreground font-bold text-sm md:text-lg uppercase tracking-wider relative overflow-hidden group w-36 md:w-52"
                   style={{ 
                     clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
                   }}
@@ -107,7 +107,7 @@ export function Hero() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => scrollToSection("music")}
-                  className="px-8 md:px-10 py-3 md:py-4 bg-primary text-primary-foreground font-bold text-base md:text-lg uppercase tracking-wider relative overflow-hidden group w-44 md:w-52"
+                  className="px-6 md:px-10 py-2.5 md:py-4 bg-primary text-primary-foreground font-bold text-sm md:text-lg uppercase tracking-wider relative overflow-hidden group w-36 md:w-52"
                   style={{ 
                     clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
                   }}

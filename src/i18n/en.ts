@@ -1,8 +1,4 @@
 export const en = {
-  hero: {
-    tag: "Fxck Genres!",
-    pitch: "All-round party DJ. Urban → Latin → House → hard bangers.",
-  },
   cta: {
     book: "Book now",
     listen: "Listen",
@@ -10,18 +6,7 @@ export const en = {
   music: {
     title: "Music",
     spotify: "Listen on Spotify",
-    soundcloud: "Latest on SoundCloud",
-  },
-  highlights: {
-    title: "Highlights",
-    items: [
-      "Open-format sets that read the crowd",
-      "High-energy mashups and edits",
-      "Urban, Latin, House, Hard Dance ready",
-      "Club and festival experience",
-      "Seamless genre transitions",
-      "Peak-hour crowd control",
-    ],
+    soundcloud: "Listen on SoundCloud",
   },
   photos: {
     title: "Photos",

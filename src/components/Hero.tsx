@@ -25,7 +25,7 @@ export function Hero() {
         particleCount: 300,
         spread: 200,
         origin: { x: 0.5, y: 0.5 },
-        angle: 0,
+        angle: 90,
         startVelocity: 70,
         gravity: 0.8,
         colors: ["#ff2d7a", "#9b87f5", "#ffffff", "#1a1f2e"],

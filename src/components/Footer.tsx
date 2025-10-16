@@ -20,6 +20,18 @@ export function Footer() {
           <div className="text-sm text-muted-foreground">
             © {currentYear} Crazy Jack. {t.footer.rights}
           </div>
+          <div className="text-sm text-muted-foreground">
+            Website by{" "}
+            <a
+              href="https://ruub.eu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 font-medium transition-colors"
+            >
+              RUUB
+            </a>
+            .
+          </div>
         </div>
       </div>
     </footer>

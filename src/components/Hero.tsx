@@ -98,7 +98,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full max-w-2xl lg:max-w-4xl mx-auto"
+            className="relative w-full max-w-2xl lg:max-w-4xl mx-auto pb-4 md:pb-8"
           >
             <img 
               src="/images/cutout-artist.png" 
@@ -107,7 +107,7 @@ export function Hero() {
             />
             
             {/* Action Buttons Overlaid on Bottom of Cutout */}
-            <div className="absolute bottom-8 md:bottom-12 lg:bottom-16 left-0 right-0 flex items-center justify-center px-4">
+            <div className="absolute bottom-12 md:bottom-16 lg:bottom-20 left-0 right-0 flex items-center justify-center px-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -41,7 +41,7 @@ export function Hero() {
           {/* Left Side - Text Content */}
           <div className="text-center lg:text-left">
             <div className="relative inline-block">
-              <motion.h1
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ 
                   opacity: 1, 
@@ -64,10 +64,14 @@ export function Hero() {
                   }, 5000);
                 }}
                 id="crazy-jack-title"
-                className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight relative"
+                className="mb-6"
               >
-                CRAZY JACK
-              </motion.h1>
+                <img 
+                  src="/images/logo-crazy-jack.png" 
+                  alt="Crazy Jack Logo" 
+                  className="h-32 md:h-48 lg:h-64 w-auto"
+                />
+              </motion.div>
               
               {/* Fxck Genres Badge - Diagonal Bottom Right */}
               <span
@@ -131,14 +135,13 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative hidden lg:flex items-center justify-center"
           >
-            {/* Placeholder for DJ Cutout PNG */}
             <div className="relative w-full h-[600px] flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-full blur-3xl" />
-              <div className="relative text-center text-muted-foreground/50 border-4 border-dashed border-muted-foreground/20 rounded-2xl p-12 backdrop-blur-sm">
-                <p className="text-lg font-medium">DJ Cutout Image</p>
-                <p className="text-sm mt-2">Add your PNG here</p>
-                <p className="text-xs mt-4 max-w-xs">Transparent PNG recommended<br/>600x800px minimum</p>
-              </div>
+              <img 
+                src="/images/cutout-artist.png" 
+                alt="Crazy Jack DJ" 
+                className="relative z-10 h-full w-auto object-contain"
+              />
             </div>
           </motion.div>
         </div>

@@ -26,7 +26,7 @@ export function WhatsAppButton({ variant = "classic" }: WhatsAppButtonProps) {
     minimal: "inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white font-bold text-lg rounded-lg transition-all",
     
     // Variant 4: Gradient Style
-    gradient: "inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-bold text-lg rounded-full transition-all shadow-lg hover:shadow-xl hover:scale-105",
+    gradient: "inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-bold text-lg rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105",
     
     // Variant 5: Soft Outlined with Icon Emphasis
     outlined: "inline-flex items-center gap-3 px-8 py-4 bg-card border-2 border-border hover:border-[#25D366] text-foreground hover:text-[#25D366] font-bold text-lg rounded-xl transition-all shadow-md hover:shadow-lg",

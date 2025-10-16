@@ -111,13 +111,13 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="absolute bottom-8 md:bottom-16 left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-4 items-center justify-center w-full sm:w-auto px-4"
+              className="absolute bottom-2 md:bottom-4 lg:bottom-8 left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-4 items-center justify-center px-4"
             >
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("booking")}
-                className="px-10 py-4 bg-primary text-primary-foreground font-bold text-lg uppercase tracking-wider relative overflow-hidden group w-full sm:w-auto"
+                className="px-10 py-4 bg-primary text-primary-foreground font-bold text-lg uppercase tracking-wider relative overflow-hidden group w-48"
                 style={{ 
                   clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
                 }}
@@ -129,7 +129,7 @@ export function Hero() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("music")}
-                className="px-10 py-4 bg-primary text-primary-foreground font-bold text-lg uppercase tracking-wider relative overflow-hidden group w-full sm:w-auto"
+                className="px-10 py-4 bg-primary text-primary-foreground font-bold text-lg uppercase tracking-wider relative overflow-hidden group w-48"
                 style={{ 
                   clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
                 }}

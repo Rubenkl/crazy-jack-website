@@ -27,9 +27,6 @@ const Index = () => {
         {/* Booking Form Section */}
         <BookingForm />
 
-        {/* WhatsApp Button */}
-        <WhatsAppButton />
-
         {/* Socials Section */}
         <Socials />
 

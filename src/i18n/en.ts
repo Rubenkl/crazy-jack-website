@@ -2,7 +2,7 @@ export const en = {
   cta: {
     book: "Book now",
     listen: "Listen",
-    whatsapp: "Contact on WhatsApp",
+    whatsapp: "Message on WhatsApp",
   },
   music: {
     title: "Music",

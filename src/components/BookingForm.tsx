@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import confetti from "canvas-confetti";
+import { WhatsAppButton } from "./WhatsAppButton";
 
 export function BookingForm() {
   const { t } = useLanguage();
@@ -141,7 +142,25 @@ export function BookingForm() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4">{t.form.title}</h2>
-            <p className="text-lg text-muted-foreground">{t.form.subtitle}</p>
+            <p className="text-lg text-muted-foreground mb-8">{t.form.subtitle}</p>
+            
+            {/* WhatsApp Button Options - Change variant prop to test different designs */}
+            <div className="flex flex-col gap-4 items-center">
+              <p className="text-sm text-muted-foreground font-semibold">Design Option 1: Classic</p>
+              <WhatsAppButton variant="classic" />
+              
+              <p className="text-sm text-muted-foreground font-semibold mt-6">Design Option 2: Neon</p>
+              <WhatsAppButton variant="neon" />
+              
+              <p className="text-sm text-muted-foreground font-semibold mt-6">Design Option 3: Minimal</p>
+              <WhatsAppButton variant="minimal" />
+              
+              <p className="text-sm text-muted-foreground font-semibold mt-6">Design Option 4: Gradient</p>
+              <WhatsAppButton variant="gradient" />
+              
+              <p className="text-sm text-muted-foreground font-semibold mt-6">Design Option 5: Outlined</p>
+              <WhatsAppButton variant="outlined" />
+            </div>
           </motion.div>
 
           <motion.form

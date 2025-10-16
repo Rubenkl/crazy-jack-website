@@ -62,22 +62,22 @@ export function Hero() {
               }, 5000);
             }}
             id="crazy-jack-title"
-            className="mb-4 relative"
+            className="mb-4 relative w-full"
           >
             <img 
               src="/images/logo-crazy-jack.png" 
               alt="Crazy Jack Logo" 
-              className="h-20 md:h-32 lg:h-40 w-auto mx-auto"
+              className="h-32 md:h-48 lg:h-64 xl:h-72 w-auto mx-auto"
             />
             
             {/* Fxck Genres Badge */}
             <span
-              className="absolute -bottom-4 left-1/2 md:-bottom-6"
+              className="absolute -bottom-6 md:-bottom-10 lg:-bottom-12 left-1/2"
               style={{ 
                 transform: "translateX(-50%) rotate(-12deg)",
               }}
             >
-              <span className="text-xl md:text-3xl lg:text-4xl font-bold text-gradient whitespace-nowrap animate-pulse-scale inline-block uppercase">
+              <span className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gradient whitespace-nowrap animate-pulse-scale inline-block uppercase">
                 {t.hero.tag}
               </span>
             </span>
@@ -88,7 +88,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-lg md:text-xl lg:text-2xl text-foreground mb-8 mt-12 max-w-3xl font-medium"
+            className="text-lg md:text-xl lg:text-2xl text-foreground mb-8 mt-16 lg:mt-20 max-w-3xl font-medium"
           >
             {t.hero.pitch}
           </motion.p>
@@ -111,13 +111,13 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="absolute bottom-2 md:bottom-4 lg:bottom-8 left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-4 items-center justify-center px-4"
+              className="absolute bottom-4 md:bottom-8 lg:bottom-12 left-0 right-0 flex flex-col sm:flex-row gap-4 items-center justify-center px-4"
             >
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("booking")}
-                className="px-10 py-4 bg-primary text-primary-foreground font-bold text-lg uppercase tracking-wider relative overflow-hidden group w-48"
+                className="px-8 md:px-10 py-3 md:py-4 bg-primary text-primary-foreground font-bold text-base md:text-lg uppercase tracking-wider relative overflow-hidden group w-44 md:w-52"
                 style={{ 
                   clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
                 }}
@@ -129,7 +129,7 @@ export function Hero() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => scrollToSection("music")}
-                className="px-10 py-4 bg-primary text-primary-foreground font-bold text-lg uppercase tracking-wider relative overflow-hidden group w-48"
+                className="px-8 md:px-10 py-3 md:py-4 bg-primary text-primary-foreground font-bold text-base md:text-lg uppercase tracking-wider relative overflow-hidden group w-44 md:w-52"
                 style={{ 
                   clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
                 }}

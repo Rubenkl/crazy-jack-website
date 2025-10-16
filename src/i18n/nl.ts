@@ -12,7 +12,7 @@ export const nl: Translations = {
   music: {
     title: "Muziek",
     spotify: "Luister op Spotify",
-    soundcloud: "Laatste op SoundCloud",
+    soundcloud: "Luister op SoundCloud",
   },
   highlights: {
     title: "Highlights",
@@ -34,7 +34,7 @@ export const nl: Translations = {
   },
   form: {
     title: "Crazy Jack boeken",
-    subtitle: "Laten we jouw event legendary maken. Drop de details en ik reageer zo snel mogelijk.",
+    subtitle: "Laten we jouw event legendarisch maken. Drop de details en wij reageren zo snel mogelijk.",
     label: {
       name: "Naam",
       email: "E-mail",
@@ -54,7 +54,7 @@ export const nl: Translations = {
       sending: "Versturen…",
     },
     state: {
-      success: "Thanks! Ik kom snel bij je terug over de boeking.",
+      success: "Thanks! Wij komen snel bij je terug over de boeking.",
       error: "Er ging iets mis. Probeer het opnieuw.",
     },
     error: {

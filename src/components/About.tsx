@@ -40,24 +40,6 @@ export function About() {
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                 {t.about.body}
               </p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="mt-8 pt-8 border-t border-border"
-              >
-                <div className="flex flex-wrap gap-3">
-                  {["Amsterdam", "Urban", "Latin", "House", "Hard Dance", "Open Format", "Club Ready", "Festival Ready"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-4 py-2 bg-muted rounded-full text-sm font-medium"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
             </div>
           </motion.div>
         </div>

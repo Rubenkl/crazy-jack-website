@@ -30,7 +30,7 @@ export const nl: Translations = {
   },
   about: {
     title: "Over",
-    body: "Amsterdamse all-round DJ met energieke, genre-vrije sets voor clubs en festivals door heel Europa. Met een onbevreesde aanpak van Urban, Latin, House en hard dance creëert Crazy Jack onvergetelijke peak-hour momenten door naadloze overgangen en intensieve crowd interactie. De 'Fxck Genres!' filosofie betekent het publiek lezen en precies geven wat nodig is—geen grenzen, alleen pure energie.",
+    body: "Crazy Jack is onze slettenbak die de tent afbreekt. Boek hem nu op je metermaandag. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at porta ultrices, velit purus sollicitudin turpis, a pharetra eros enim vel turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis nec lorem vitae lacus efficitur tincidunt. Integer in purus non libero vestibulum congue. Phasellus convallis tortor eu augue finibus, nec viverra sapien laoreet.",
   },
   form: {
     title: "Crazy Jack boeken",

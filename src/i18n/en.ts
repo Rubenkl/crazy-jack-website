@@ -28,7 +28,7 @@ export const en = {
   },
   about: {
     title: "About",
-    body: "Amsterdam-based all-round DJ bringing high-energy, genre-fluid sets to clubs and festivals across Europe. With a fearless approach to mixing Urban, Latin, House, and hard dance, Crazy Jack creates unforgettable peak-hour moments through seamless transitions and heavy crowd interaction. The 'Fxck Genres!' philosophy means reading the room and delivering exactly what the crowd needs—no boundaries, just pure energy.",
+    body: "Crazy Jack is our party animal who tears the roof off. Book him now for your Meter Monday. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc at porta ultrices, velit purus sollicitudin turpis, a pharetra eros enim vel turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis nec lorem vitae lacus efficitur tincidunt. Integer in purus non libero vestibulum congue. Phasellus convallis tortor eu augue finibus, nec viverra sapien laoreet.",
   },
   form: {
     title: "Book Crazy Jack",

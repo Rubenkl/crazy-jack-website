@@ -22,9 +22,9 @@ export function Hero() {
   useEffect(() => {
     const timer = setTimeout(() => {
       confetti({
-        particleCount: 350,
+        particleCount: 450,
         spread: 300,
-        origin: { x: 0, y: 1 }, // Bottom left corner
+        origin: { x: 0, y: 0.5 },
         angle: 45,
         startVelocity: 80,
         gravity: 0.8,

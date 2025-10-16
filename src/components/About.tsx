@@ -37,9 +37,27 @@ export function About() {
                 className="h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-8"
               />
               
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
                 {t.about.body}
               </p>
+              
+              <motion.a
+                href="https://www.dropbox.com/scl/fo/0fdjh3n4pr4x1cslrpxgo/h?rlkey=5caibm3yop51usv636n1ecp6e&dl=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block px-8 py-3 bg-primary text-primary-foreground font-bold text-base uppercase tracking-wider relative overflow-hidden group"
+                style={{ 
+                  clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
+                }}
+              >
+                <span className="relative z-10">Download Presskit</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
+              </motion.a>
             </div>
           </motion.div>
         </div>

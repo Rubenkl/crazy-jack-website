@@ -3,11 +3,12 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { useRef, useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
+import { withBasePath } from "@/lib/assetPath";
 
 const galleryImages = [
-  "/images/image-1.jpg",
-  "/images/image-2.jpg",
-  "/images/image-3.jpg",
+  withBasePath("images/image-1.jpg"),
+  withBasePath("images/image-2.jpg"),
+  withBasePath("images/image-3.jpg"),
 ];
 
 export function PhotoGallery() {

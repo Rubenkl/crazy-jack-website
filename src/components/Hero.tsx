@@ -35,9 +35,9 @@ export function Hero() {
       {/* Centered Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 container mx-auto px-4 py-20"
+        className="relative z-10 w-full px-4 py-20"
       >
-        <div className="flex flex-col items-center text-center max-w-6xl mx-auto">
+        <div className="flex flex-col items-center text-center w-full max-w-7xl mx-auto">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -71,16 +71,16 @@ export function Hero() {
             />
             
             {/* Fxck Genres Badge */}
-            <span
-              className="absolute -bottom-6 md:-bottom-10 lg:-bottom-12 left-1/2"
+            <div
+              className="absolute -bottom-6 md:-bottom-10 lg:-bottom-12 left-1/2 -translate-x-1/2 w-full max-w-[90vw]"
               style={{ 
                 transform: "translateX(-50%) rotate(-12deg)",
               }}
             >
-              <span className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gradient whitespace-nowrap animate-pulse-scale inline-block uppercase">
+              <span className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gradient animate-pulse-scale inline-block uppercase">
                 {t.hero.tag}
               </span>
-            </span>
+            </div>
           </motion.div>
 
           {/* Pitch Text */}
@@ -98,7 +98,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full max-w-2xl lg:max-w-4xl"
+            className="relative w-full max-w-2xl lg:max-w-4xl mx-auto"
           >
             <img 
               src="/images/cutout-artist.png" 
@@ -107,37 +107,39 @@ export function Hero() {
             />
             
             {/* Action Buttons Overlaid on Bottom of Cutout */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.6 }}
-              className="absolute bottom-4 md:bottom-8 lg:bottom-12 left-0 right-0 flex flex-col sm:flex-row gap-4 items-center justify-center px-4"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection("booking")}
-                className="px-8 md:px-10 py-3 md:py-4 bg-primary text-primary-foreground font-bold text-base md:text-lg uppercase tracking-wider relative overflow-hidden group w-44 md:w-52"
-                style={{ 
-                  clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
-                }}
+            <div className="absolute bottom-2 md:bottom-4 lg:bottom-8 left-0 right-0 flex items-center justify-center px-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 0.6 }}
+                className="flex flex-col sm:flex-row gap-4 items-center justify-center"
               >
-                <span className="relative z-10">{t.cta.book}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection("music")}
-                className="px-8 md:px-10 py-3 md:py-4 bg-primary text-primary-foreground font-bold text-base md:text-lg uppercase tracking-wider relative overflow-hidden group w-44 md:w-52"
-                style={{ 
-                  clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
-                }}
-              >
-                <span className="relative z-10">{t.cta.listen}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
-              </motion.button>
-            </motion.div>
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => scrollToSection("booking")}
+                  className="px-8 md:px-10 py-3 md:py-4 bg-primary text-primary-foreground font-bold text-base md:text-lg uppercase tracking-wider relative overflow-hidden group w-44 md:w-52"
+                  style={{ 
+                    clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
+                  }}
+                >
+                  <span className="relative z-10">{t.cta.book}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => scrollToSection("music")}
+                  className="px-8 md:px-10 py-3 md:py-4 bg-primary text-primary-foreground font-bold text-base md:text-lg uppercase tracking-wider relative overflow-hidden group w-44 md:w-52"
+                  style={{ 
+                    clipPath: "polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%)",
+                  }}
+                >
+                  <span className="relative z-10">{t.cta.listen}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-0 group-hover:opacity-100 transition-opacity" />
+                </motion.button>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </motion.div>

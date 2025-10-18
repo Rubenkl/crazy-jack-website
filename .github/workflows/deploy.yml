@@ -42,10 +42,16 @@ jobs:
             const fs = require("fs");
             const path = require("path");
 
+            const setDomain = (value) => {
+              const normalized = (value || "").trim();
+              core.setOutput("custom_domain", normalized);
+              return normalized;
+            };
+
             const explicit = (process.env.PAGES_CUSTOM_DOMAIN || "").trim();
             if (explicit) {
               core.info(`Using custom domain from repository variable: ${explicit}`);
-              return explicit;
+              return setDomain(explicit);
             }
 
             const cnamePath = path.join(process.env.GITHUB_WORKSPACE, "public", "CNAME");
@@ -53,7 +59,7 @@ jobs:
               const fromFile = fs.readFileSync(cnamePath, "utf8").trim();
               if (fromFile) {
                 core.info(`Using custom domain from public/CNAME: ${fromFile}`);
-                return fromFile;
+                return setDomain(fromFile);
               }
             }
 
@@ -65,35 +71,41 @@ jobs:
               } else {
                 core.info("No custom domain reported by GitHub Pages API.");
               }
-              return cname;
+              return setDomain(cname);
             } catch (error) {
               if (error.status === 404) {
                 core.info("GitHub Pages has not been set up yet.");
-                return "";
+                return setDomain("");
               }
               throw error;
             }
 
       - name: Configure GitHub Pages base path
         env:
-          CUSTOM_DOMAIN: ${{ steps.detect_custom_domain.outputs.result }}
+          CUSTOM_DOMAIN: ${{ steps.detect_custom_domain.outputs.custom_domain }}
         run: |
           set -euo pipefail
 
           if [[ -n "${CUSTOM_DOMAIN:-}" ]]; then
             echo "Detected custom domain '${CUSTOM_DOMAIN}'. Using '/' as base path."
             echo "VITE_BASE_PATH=/" >> "$GITHUB_ENV"
+            echo "EXPECTED_BASE_PATH=/" >> "$GITHUB_ENV"
           elif [[ "${GITHUB_REPOSITORY}" == "${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY_OWNER}.github.io" ]]; then
             echo "Detected user/organization Pages site. Using '/' as base path."
             echo "VITE_BASE_PATH=/" >> "$GITHUB_ENV"
+            echo "EXPECTED_BASE_PATH=/" >> "$GITHUB_ENV"
           else
             REPO_NAME="${GITHUB_REPOSITORY#*/}"
             echo "Defaulting to project Pages base path '/${REPO_NAME}/'."
             echo "VITE_BASE_PATH=/${REPO_NAME}/" >> "$GITHUB_ENV"
+            echo "EXPECTED_BASE_PATH=/${REPO_NAME}/" >> "$GITHUB_ENV"
           fi
 
       - name: Build site
         run: npm run build
+
+      - name: Verify built asset base path
+        run: node scripts/verify-base-path.mjs "$EXPECTED_BASE_PATH"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

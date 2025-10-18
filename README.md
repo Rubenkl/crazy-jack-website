@@ -80,8 +80,10 @@ local `dist/` structure that `npm run build` produces.
 #### Customizing locales or paths
 
 - Add or remove locale codes in `scripts/generate-language-pages.mjs` to control which language folders are exported.
-- If you serve the site from a custom domain, add the domain to `public/CNAME` **or** define a repository variable named
-  `PAGES_CUSTOM_DOMAIN`. Either option tells the deployment workflow to publish with `VITE_BASE_PATH=/`.
+- If you serve the site from a custom domain, the workflow automatically checks your repository's GitHub Pages settings for a
+  configured CNAME. You can still add the domain to `public/CNAME` **or** define a repository variable named
+  `PAGES_CUSTOM_DOMAIN` to override or guarantee detection. Any of these options tells the deployment workflow to publish with
+  `VITE_BASE_PATH=/`.
 - The Vite base path is automatically set for GitHub Pages during CI, but you can override it locally by defining the
   `VITE_BASE_PATH` environment variable before running `npm run build` (for example, `VITE_BASE_PATH=/my-repo/ npm run
   build`).

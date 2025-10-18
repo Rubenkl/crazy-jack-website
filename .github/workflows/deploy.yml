@@ -33,13 +33,56 @@ jobs:
       - name: Configure GitHub Pages base path
         env:
           PAGES_CUSTOM_DOMAIN: ${{ vars.PAGES_CUSTOM_DOMAIN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [[ -f public/CNAME ]] || [[ -n "${PAGES_CUSTOM_DOMAIN:-}" ]]; then
+          set -euo pipefail
+
+          CUSTOM_DOMAIN=""
+
+          if [[ -f public/CNAME ]]; then
+            CUSTOM_DOMAIN=$(<public/CNAME)
+            CUSTOM_DOMAIN="${CUSTOM_DOMAIN//$'\r'/}"
+          fi
+
+          if [[ -z "${CUSTOM_DOMAIN}" && -n "${PAGES_CUSTOM_DOMAIN:-}" ]]; then
+            CUSTOM_DOMAIN="${PAGES_CUSTOM_DOMAIN}"
+          fi
+
+          if [[ -z "${CUSTOM_DOMAIN}" ]]; then
+            API_RESPONSE=$(curl -fsSL \
+              -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" \
+              || true)
+
+            if [[ -n "${API_RESPONSE}" ]]; then
+              CUSTOM_DOMAIN=$(printf '%s' "${API_RESPONSE}" | python3 - <<'PY'
+import json
+import sys
+
+try:
+    data = json.load(sys.stdin)
+except json.JSONDecodeError:
+    sys.exit(0)
+
+cname = data.get("cname") or ""
+print(cname.strip())
+PY
+)
+              CUSTOM_DOMAIN="${CUSTOM_DOMAIN//$'\n'/}"
+              CUSTOM_DOMAIN="${CUSTOM_DOMAIN//$'\r'/}"
+            fi
+          fi
+
+          if [[ -n "${CUSTOM_DOMAIN}" ]]; then
+            echo "Detected custom domain '${CUSTOM_DOMAIN}'. Using '/' as base path."
             echo "VITE_BASE_PATH=/" >> "$GITHUB_ENV"
           elif [[ "${GITHUB_REPOSITORY}" == "${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY_OWNER}.github.io" ]]; then
+            echo "Detected user/organization Pages site. Using '/' as base path."
             echo "VITE_BASE_PATH=/" >> "$GITHUB_ENV"
           else
             REPO_NAME="${GITHUB_REPOSITORY#*/}"
+            echo "Defaulting to project Pages base path '/${REPO_NAME}/'."
             echo "VITE_BASE_PATH=/${REPO_NAME}/" >> "$GITHUB_ENV"
           fi
 

@@ -49,6 +49,6 @@ jobs:
           protocol: ftp
           port: ${{ secrets.FTP_PORT }}
           timeout: 3600000
-          local-dir: dist
+          local-dir: dist/
           server-dir: ${{ secrets.FTP_PATH }}
           state-name: ftp-deploy-sync-state-${{ github.ref_name }}.json
